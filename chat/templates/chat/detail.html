@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if request.user.is_authenticated %}
 <div class="col-md-12">
     <h5 class="card-title">{{object.name}}</h5>
     {% for user in object.users.all %}
@@ -9,11 +9,19 @@
     {% endfor %}
     <div class="card">
         <div class="card-body">
-            {% for comment in object.comments.all %}
-            <p class="card-text">{{comment.comment}}</p>
+            {% for comment in chatroom.comments.all %}
+            <div class="comment">
+                <div class="date">{{ comment.created_date }}</div>
+                <p>{{ comment.comment }}</p>
+            </div>
+            {% empty %}
+            <p>No comments here yet :(</p>
             {% endfor %}
         </div>
     </div>
 </div>
-
+<div class="row no-gutters mt-2">
+    <a class='btn btn-primary' href="{% url 'chat:edit' chatroom.id %}">Add Comment</a>
+</div>
+{% endif %}
 {% endblock %}

@@ -10,7 +10,6 @@ class Chatroom(models.Model):
     description = models.TextField()
     posted = models.DateField(default=datetime.date.today)
     users = models.ManyToManyField('User', related_name = 'chatroom')
-    comments = models.ManyToManyField('Comment', related_name = 'chatroom')
 
     def __str__(self):
         return(self.name)
@@ -25,4 +24,10 @@ class User(models.Model):
         return(self.name)
 
 class Comment(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     comment = models.TextField()
+    created_date = models.DateField(default=datetime.date.today)
+
+    def __int__(self):
+        return self.name
+
