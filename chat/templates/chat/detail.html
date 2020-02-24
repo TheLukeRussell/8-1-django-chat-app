@@ -2,14 +2,17 @@
 
 {% block content %}
 
-<div class="col-12 col-md-4">
+<div class="col-md-12">
+    <h5 class="card-title">{{object.name}}</h5>
+    {% for user in object.users.all %}
+    <span class="card-text">{{user.name}}</span>
+    {% endfor %}
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title">{{object.name}}</h5>
-            {% for user in object.users.all %}
-            <span class="card-text">{{user.name}}</span>
+            {% for comment in object.comments.all %}
+            <p class="card-text">{{comment.comment}}</p>
             {% endfor %}
         </div>
     </div>
 </div>
-{% endblock content %}
+{% endblock %}
