@@ -1,19 +1,26 @@
 from django.db import models
 from django.urls import reverse
+import datetime
+from django.contrib.auth import get_user_model
 
-class Chat(models.Model):
+User = get_user_model()
+
+class Chatroom(models.Model):
     name = models.CharField(max_length = 255)
-    comments = models.ManyToManyField('Comment', related_name = 'chat')
+    description = models.TextField()
+    posted = models.DateField(default=datetime.date.today)
+    users = models.ManyToManyField('User', related_name = 'chatroom')
 
     def __str__(self):
         return(self.name)
 
     def get_absolute_url(self):
         return reverse('chat:index')
-    
-class Comment(models.Model):
-    text = models.TextField()
 
-    def __str__(self):
-        return self.name
-    
+class User(models.Model):
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __int__(self):
+        return(self.name)
+
+

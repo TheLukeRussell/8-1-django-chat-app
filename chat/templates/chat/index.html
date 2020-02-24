@@ -2,4 +2,18 @@
 
 {% block content %}
 <h1>Hello Chat App</h1>
+{% for chatroom in object_list %}
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'chat:detail' chatroom.id %}">{{chatroom.name}}</a></h5>
+            <p>{{ chatroom.description }}</p>
+            <p>{{ chatroom.posted }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
 {% endblock content %}
