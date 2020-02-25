@@ -10,7 +10,7 @@ class Chatroom(models.Model):
     description = models.TextField()
     posted = models.DateField(default=datetime.date.today)
     owner = models.ForeignKey(User, on_delete = models.CASCADE, related_name='chat')
-    users = models.ManyToManyField(User)
+    users = models.ManyToManyField(User, related_name = 'chatrooms')
 
     def __str__(self):
         return(self.name)

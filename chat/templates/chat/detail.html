@@ -16,6 +16,7 @@
         </div>
     </div>
 </div>
+
 <div class="row no-gutters mt-2">
     <form data-parsley-validate method="POST" action='{% url 'chat:comment' object.id %}'>{% csrf_token %}
         {{ form|crispy }}
@@ -24,4 +25,5 @@
         <button class=" mt-2 btn btn-primary">Save Comment</button>
     </form>
 </div>
+
 {% endblock %}

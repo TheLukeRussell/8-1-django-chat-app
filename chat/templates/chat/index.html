@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <h1>Hello Chat App</h1>
 {% if request.user.is_authenticated %}
+{% if request.user.username %}
+<h5 id="greeting">Welcome Back {{request.user.username}}!</h5>
+{% endif %}
 {% for chatroom in object_list %}
 <div class="row no-gutters mt-4 mb-4">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title"><a href="{% url 'chat:detail' chatroom.id %}">{{chatroom.name}}</a></h5>
-                <p>{{ chatroom.description }}</p>
-                <p>Created by: {{ chatroom.owner }} on {{ chatroom.posted }}</p>
-                {% endfor %}
-                {% if object.users == False %}
-                    <div class="row no-gutters mt-2">
-                <a class='btn btn-success' href="{% url 'chat:join' chatroom.id%}">Join Thread</a>
-    </div>
-    {% endif %}
+                {% if user in chatroom.users.all %}
+                    <h5 class="card-title"><a href="{% url 'chat:detail' chatroom.id %}">{{chatroom.name}}</a></h5>
+                    <p>{{ chatroom.description }}</p>
+                    <p>Created by: {{ chatroom.owner }} on {{ chatroom.posted }}</p>
+                {% else %}
+                    <h5 class="card-title">{{chatroom.name}}</h5>
+                    <p>{{ chatroom.description }}</p>
+                    <p>Created by: {{ chatroom.owner }} on {{ chatroom.posted }}</p>
+                    <form method="POST" action='{% url 'chat:add_users' chatroom.id %}'>{% csrf_token %}
+                        {{ form|crispy }}
+                        <button class=" mt-2 btn btn-success">Join Thread</button>
+                    </form>
+                {% endif %}
                 {% if request.user.is_superuser %}
-                <div class="row no-gutters mt-2">
-                    <a class='btn btn-danger' href="{% url 'chat:delete' chatroom.id %}">Delete Thread</a>
-                </div>
+                    <div class="row no-gutters mt-2">
+                        <a class='btn btn-danger' href="{% url 'chat:delete' chatroom.id %}">Delete Thread</a>
+                    </div>
                 {% endif %}
             </div>
         </div>
     </div>
 </div>
+{% endfor %}
 
 
 <div class="row no-gutters mt-2">

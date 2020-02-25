@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse, reverse_lazy
@@ -15,8 +16,6 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     template_name = 'chat/detail.html'
     model = Chatroom
-    def get_queryset(self):
-        return Chatroom.objects.filter(users=self.request.user)
 
 class CreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'chat/create.html'
@@ -35,9 +34,12 @@ class DeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse_lazy('chat:index')
 
-class JoinView(LoginRequiredMixin, generic.UpdateView):
-    model = Chatroom
-    fields = ['users',]
+def add_users(request, pk):
+    room = get_object_or_404(Chatroom, pk=pk)
+    room.users.add(request.user)
+    room.save()
+
+    return HttpResponseRedirect(reverse_lazy('chat:index'))
 
 class CommentView(generic.CreateView):
     model = Comment
