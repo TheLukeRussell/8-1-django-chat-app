@@ -5,6 +5,7 @@ ul {
 #header {
     background-color: inherit;
     padding: 20px;
+    color: inherit;
 }
 
 .container-fluid {
@@ -28,11 +29,20 @@ ul {
 }
 
 #header-item a{
-    color: #000;
+    color: #D9B08C;
     text-decoration: none;
     font-size: 22px;
     font-weight: bold;
+    padding: 10px;
     margin: 0 auto;
+    background-color: inherit;
+}
+
+#header-item a:hover {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #161616;
+    transition: .6s ease;
 }
 
 
