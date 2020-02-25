@@ -9,7 +9,8 @@ class Chatroom(models.Model):
     name = models.CharField(max_length = 255)
     description = models.TextField()
     posted = models.DateField(default=datetime.date.today)
-    users = models.ManyToManyField('User', related_name = 'chatroom')
+    owner = models.ForeignKey(User, on_delete = models.CASCADE, related_name='chat')
+    users = models.ManyToManyField(User)
 
     def __str__(self):
         return(self.name)
@@ -17,17 +18,17 @@ class Chatroom(models.Model):
     def get_absolute_url(self):
         return reverse('chat:index')
 
-class User(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    def __int__(self):
-        return(self.name)
 
 class Comment(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
+    chat = models.ForeignKey(Chatroom, on_delete=models.CASCADE)
     created_date = models.DateField(default=datetime.date.today)
 
-    def __int__(self):
-        return self.name
+    
+    def __str__(self):
+        return self.comment
+    
+    def get_absolute_url(self):
+        return reverse('chat:detail', args = (self.chat_id,))
 

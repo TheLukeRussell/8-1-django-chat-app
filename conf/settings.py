@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'chat.apps.ChatConfig',
 ]
 
+CRISPY_TEMPLATE_PACK = 'uni_form'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',

@@ -9,5 +9,5 @@ urlpatterns = [
     path('<int:pk>/', views.DetailView.as_view(), name = 'detail'),
     path('add/', views.CreateView.as_view(), name = 'create'),
     path('<int:pk>/delete', views.DeleteView.as_view(), name = 'delete'),
-    path('<int:pk>/edit', views.EditView.as_view(), name = 'edit'),
+    path('<int:pk>/comment/', views.CommentView.as_view(), name = 'comment'),
 ]

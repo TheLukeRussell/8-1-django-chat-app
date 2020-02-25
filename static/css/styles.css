@@ -16,6 +16,10 @@ ul {
     color: #000;
 }
 
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -34,13 +38,14 @@ ul {
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
+    border-radius: 10px;
     margin: 0 auto;
     background-color: inherit;
 }
 
 #header-item a:hover {
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #161616;
     transition: .6s ease;
 }
@@ -57,12 +62,13 @@ p {
     color: #fff;
 }
 
-a {
+h5, a {
     color: #D9B08C;
 }
 
 a:hover {
     color:rgb(173, 140, 111);
+    text-decoration: none;
 }
 
 .card {
@@ -86,4 +92,8 @@ a:hover {
 
 .btn-danger:hover {
     background-color: #71727a;
+}
+
+.date {
+    color: #D9B08C;
 }

@@ -33,9 +33,15 @@ class DeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse_lazy('chat:index')
 
-class EditView(generic.UpdateView):
-    model = Chatroom
+class CommentView(generic.CreateView):
+    model = Comment
     form_class = CommentForm
     template_name = 'chat/edit.html'
 
-    
+    def form_valid(self, form):
+        form.instance.name = self.request.user 
+        form.instance.chat_id = self.kwargs['pk']
+        # comment=form.save(commit=False)
+        # import pdb; pdb.set_trace()
+        # comment.post=self.kwargs['pk']
+        return super().form_valid(form)
