@@ -10,7 +10,13 @@
             <div class="card-body">
                 <h5 class="card-title"><a href="{% url 'chat:detail' chatroom.id %}">{{chatroom.name}}</a></h5>
                 <p>{{ chatroom.description }}</p>
-                <p>{{ chatroom.posted }}</p>
+                <p>Created by: {{ chatroom.owner }} on {{ chatroom.posted }}</p>
+                {% endfor %}
+                {% if object.users == False %}
+                    <div class="row no-gutters mt-2">
+                <a class='btn btn-success' href="{% url 'chat:join' chatroom.id%}">Join Thread</a>
+    </div>
+    {% endif %}
                 {% if request.user.is_superuser %}
                 <div class="row no-gutters mt-2">
                     <a class='btn btn-danger' href="{% url 'chat:delete' chatroom.id %}">Delete Thread</a>
@@ -22,8 +28,6 @@
 </div>
 
 
-
-{% endfor %}
 <div class="row no-gutters mt-2">
     <a class='btn btn-success' href="{% url 'chat:create'%}">Start Thread</a>
 </div>

@@ -10,4 +10,5 @@ urlpatterns = [
     path('add/', views.CreateView.as_view(), name = 'create'),
     path('<int:pk>/delete', views.DeleteView.as_view(), name = 'delete'),
     path('<int:pk>/comment/', views.CommentView.as_view(), name = 'comment'),
+    path('<int:pk>/join/', views.JoinView.as_view(), name = 'join'),
 ]

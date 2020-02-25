@@ -3,9 +3,6 @@
 {% block content %}
 <div class="col-md-12">
     <h5 class="card-title">{{object.name}}</h5>
-    {% for user in object.users.all %}
-    <span class="card-text">{{user.name}}</span>
-    {% endfor %}
     <div class="card">
         <div class="card-body">
             {% for comment in object.comment_set.all %}
@@ -22,8 +19,9 @@
 <div class="row no-gutters mt-2">
     <form data-parsley-validate method="POST" action='{% url 'chat:comment' object.id %}'>{% csrf_token %}
         {{ form|crispy }}
-        <input name="comment" type="text">
-        <button class="btn btn-primary">Save Comment</button>
+        <input class="comment" name="comment" type="text">
+        <br>
+        <button class=" mt-2 btn btn-primary">Save Comment</button>
     </form>
 </div>
 {% endblock %}

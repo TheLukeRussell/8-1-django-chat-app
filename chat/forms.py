@@ -9,6 +9,3 @@ class CommentForm(forms.ModelForm):
     class Meta:
         fields = ('comment',)
         model = Comment
-
-
-    

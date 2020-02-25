@@ -15,6 +15,8 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     template_name = 'chat/detail.html'
     model = Chatroom
+    def get_queryset(self):
+        return Chatroom.objects.filter(users=self.request.user)
 
 class CreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'chat/create.html'
@@ -33,15 +35,15 @@ class DeleteView(LoginRequiredMixin, generic.DeleteView):
     def get_success_url(self):
         return reverse_lazy('chat:index')
 
+class JoinView(LoginRequiredMixin, generic.UpdateView):
+    model = Chatroom
+    fields = ['users',]
+
 class CommentView(generic.CreateView):
     model = Comment
     form_class = CommentForm
-    template_name = 'chat/edit.html'
 
     def form_valid(self, form):
         form.instance.name = self.request.user 
         form.instance.chat_id = self.kwargs['pk']
-        # comment=form.save(commit=False)
-        # import pdb; pdb.set_trace()
-        # comment.post=self.kwargs['pk']
         return super().form_valid(form)
