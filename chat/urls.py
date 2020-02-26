@@ -10,5 +10,6 @@ urlpatterns = [
     path('add/', views.CreateView.as_view(), name = 'create'),
     path('<int:pk>/delete', views.DeleteView.as_view(), name = 'delete'),
     path('<int:pk>/comment/', views.CommentView.as_view(), name = 'comment'),
-    path('<int:pk>/update', views.add_users, name = 'add_users')
+    path('<int:pk>/update', views.add_users, name = 'add_users'),
+    path('my_chat', views.ChatroomListView.as_view(), name = 'my_chat'),
 ]

@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Welcome to Your Profile!</h2>
-<div>{{object.user}}</div>
-<div>{{object.country}}</div>
-<img src="{{object.avatar.url}}" alt="This is the users profile avatar">
+<h2><u>Welcome to {{object.user}}'s Profile!</u></h2>
+<div id="profile-img" class="row no-gutters">
+    <img class="col-md" src="{{object.avatar.url}}" alt="This is the users profile avatar">
+    </div>
+<div id="profile-country" class="row no-gutters">
+<h5 class="col-md mb-5">Country: {{object.country}}</h5>
+</div>
+<div class="row no-gutters">
+<a id='chat-list' class="btn btn-success col-md-6" href="{% url 'chat:my_chat' %}">Click Here to Show Chatrooms You Have Joined!</a>
+</div>
 {% endblock content %}

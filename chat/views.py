@@ -41,6 +41,12 @@ def add_users(request, pk):
 
     return HttpResponseRedirect(reverse_lazy('chat:index'))
 
+class ChatroomListView(generic.ListView):
+    template_name = 'chat/my_chat.html'
+    model = Chatroom
+    def get_queryset(self):
+        return Chatroom.objects.filter(users=self.request.user)
+
 class CommentView(generic.CreateView):
     model = Comment
     form_class = CommentForm

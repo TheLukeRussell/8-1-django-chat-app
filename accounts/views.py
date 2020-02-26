@@ -8,7 +8,7 @@ from .forms import CustomUserCreationForm
 class SignUpView(generic.CreateView):
     template_name = 'signup.html'
     form_class = CustomUserCreationForm
-    success_url = reverse_lazy('accounts:profile')
+    success_url = reverse_lazy('login')
 
 def logout_request(request):
     logout(request)
