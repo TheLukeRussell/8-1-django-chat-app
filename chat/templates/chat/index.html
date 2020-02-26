@@ -40,5 +40,13 @@
 <div class="row no-gutters mt-2">
     <a class='btn btn-success' href="{% url 'chat:create'%}">Start Thread</a>
 </div>
+{% else %}
+<h2 style="text-align: center; padding: 20px;">Hello Chat App, where your thoughts and opinions are apparently wanted </h2>
+<h3 style="text-align: center; padding: 20px;">To get started, either login or signup below!</h3>
+<div class="row no-gutters">
+    <a href="{% url 'login' %}" class="col-2 btn btn-success mt-5 mr-auto ml-auto">Login</a>
+    <a href="{% url 'accounts:signup' %}" class="col-2 btn btn-success mt-5 mr-auto ml-auto">Signup</a>
+
+</div>
 {% endif %}
 {% endblock content %}

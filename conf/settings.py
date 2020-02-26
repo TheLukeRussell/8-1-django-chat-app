@@ -41,11 +41,15 @@ INSTALLED_APPS = [
 
     #third party
     'crispy_forms',
+    'crispy_forms_foundation',
     'parsley',
     #local
     'accounts.apps.AccountsConfig',
     'chat.apps.ChatConfig',
 ]
+
+CRISPY_TEMPLATE_PACK = 'foundation-6'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

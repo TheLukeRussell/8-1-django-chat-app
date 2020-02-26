@@ -16,10 +16,16 @@ ul {
     color: #000;
 }
 
+#comment {
+    text-align: center;
+}
+input.comment {
+    width: 600px;
+    margin-top: 50px;
+}
 #greeting {
     text-align: center;
 }
-
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -34,6 +40,19 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+#create, #signup, #login {
+    color: #fff;
+    text-align: center;
+    margin: 0 500px;
+}
+
+#login-title, #signup-title {
+    color: #D9B08C;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 52px;
 }
 
 #header-item a{
@@ -58,7 +77,8 @@ body {
 h1 {
     color: #000;
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
+    font-weight: bold;
     margin-bottom: 30px;
 }
 

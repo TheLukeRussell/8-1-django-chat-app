@@ -3,6 +3,9 @@
 {% block content %}
 <div class="col-md-12">
     <h5 class="card-title">{{object.name}}</h5>
+    {% for chatroom in object_list %}
+    <p></p>
+    {% endfor %}
     <div class="card">
         <div class="card-body">
             {% for comment in object.comment_set.all %}
@@ -17,12 +20,12 @@
     </div>
 </div>
 
-<div class="row no-gutters mt-2">
-    <form data-parsley-validate method="POST" action='{% url 'chat:comment' object.id %}'>{% csrf_token %}
+<div id='comment' class="row no-gutters mt-2 justify-content-center">
+    <form class="col" data-parsley-validate method="POST" action='{% url 'chat:comment' object.id %}'>{% csrf_token %}
         {{ form|crispy }}
-        <input class="comment" name="comment" type="text">
+        <input class="comment" placeholder="Insert Comment Here..." name="comment" type="text">
         <br>
-        <button class=" mt-2 btn btn-primary">Save Comment</button>
+        <button class=" mt-2 btn btn-primary">Add Comment</button>
     </form>
 </div>
 
