@@ -5,7 +5,6 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse, reverse_lazy
 from .forms import CommentForm
-from crispy_forms_foundation.settings import *
 
 from .models import Chatroom, Comment
 
