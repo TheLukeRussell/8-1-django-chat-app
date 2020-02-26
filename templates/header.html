@@ -2,12 +2,14 @@
     <li id="header-item"><a href="{% url 'chat:index' %}" class="col">Home</a></li>
     {% if request.user.is_authenticated %}
     <li id="header-item"><a href="{% url 'chat:create' %}" class="col">Add Thread</a></li>
+    {% if request.user.userprofile %}
     <li id="header-item"><a href="{% url 'accounts:profile_detail' user.userprofile.id %}" class="col">Profile</a></li>
+    {% else %}
+    <li id="header-item"><a href="{% url 'accounts:profile' %}" class="col">Create Profile</a></li>
+    {% endif %}
     <li id="header-item"><a href="{% url 'logout' %}" class="col">Logout</a></li> 
     {% else %}
     <li id="header-item"><a href="{% url 'login' %}" class="col">Login</a></li> 
     <li id="header-item"><a href="{% url 'accounts:signup' %}" class="col">Get Started</a></li>
-    {% endif %}
-    {% if request.user.is_superuser %} 
     {% endif %}
 </ul>

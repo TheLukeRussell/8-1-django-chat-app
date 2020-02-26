@@ -4,9 +4,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.decorators import user_passes_test
 from .forms import CommentForm
 
 from .models import Chatroom, Comment
+
 
 
 class IndexView(generic.ListView):
@@ -16,6 +18,13 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     template_name = 'chat/detail.html'
     model = Chatroom
+
+    # def get(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+        # if self.request.user == self.object.users:
+        #     context = self.get_context_data(object=self.object)
+        #     return self.render_to_response(context)
+        # return HttpResponseRedirect(reverse_lazy('chat:index'))
 
 class CreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'chat/create.html'
@@ -27,6 +36,7 @@ class CreateView(LoginRequiredMixin, generic.CreateView):
     def handle_no_permission(self):
         return redirect('login')
 
+@user_passes_test(lambda u: u.is_superuser)
 class DeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'chat/delete.html'
     model = Chatroom
@@ -55,3 +65,5 @@ class CommentView(generic.CreateView):
         form.instance.name = self.request.user 
         form.instance.chat_id = self.kwargs['pk']
         return super().form_valid(form)
+
+

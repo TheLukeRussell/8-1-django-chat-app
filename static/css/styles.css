@@ -12,7 +12,7 @@ ul {
     background: linear-gradient(-45deg, #56807f, #116466, #0b3e3f, #8f745d);
 	background-size: 400% 400%;
 	animation: gradient 10s ease infinite;
-    min-height: 100vh;
+    min-height: 110vh;
     color: #000;
 }
 

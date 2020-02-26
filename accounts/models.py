@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth import get_user_model
-from django_countries.fields import CountryField
+from django.db.models.signals import post_save
 from localflavor.us.us_states import STATE_CHOICES
 
 User = get_user_model()
