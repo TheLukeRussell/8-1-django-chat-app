@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django_countries',
     'parsley',
+    'localflavor',
     #local
     'accounts.apps.AccountsConfig',
     'chat.apps.ChatConfig',
