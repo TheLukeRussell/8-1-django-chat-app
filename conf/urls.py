@@ -26,3 +26,6 @@ urlpatterns = [
     path('accounts:signup', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

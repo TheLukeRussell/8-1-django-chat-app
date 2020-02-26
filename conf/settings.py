@@ -41,11 +41,15 @@ INSTALLED_APPS = [
 
     #third party
     'crispy_forms',
+    'django_countries',
     'parsley',
     #local
     'accounts.apps.AccountsConfig',
     'chat.apps.ChatConfig',
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

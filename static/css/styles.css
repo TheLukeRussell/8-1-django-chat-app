@@ -42,13 +42,18 @@ body {
 	}
 }
 
-#create, #signup, #login {
+#create, #signup, #login, #profile {
     color: #fff;
     text-align: center;
     margin: 0 500px;
+    background-color: #D9B08C;
+    padding: 25px;
+    border-radius: 10px;
 }
 
-#login-title, #signup-title {
+
+
+#login-title, #signup-title, #profile-title {
     color: #D9B08C;
     text-align: center;
     margin-bottom: 30px;
@@ -88,6 +93,7 @@ p {
 
 h5, a {
     color: #D9B08C;
+    font-size: 24px;
 }
 
 a:hover {
@@ -107,6 +113,15 @@ a:hover {
 .btn-success {
     background-color: #D9B08C;
     border: none;
+}
+
+.btn-primary {
+    background-color: #116466;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0d4b4d;
 }
 
 .btn-danger {
