@@ -11,8 +11,7 @@
             {% for comment in object.comment_set.all %}
             <div class="comment">
                 <div class="date">{{comment.name}} - <i>{{comment.created_date}}</i></div>
-                <p>{{comment.comment}} <a href="{% url 'chat:edit' object.id %}">Edit Comment</a>
-                </div></p>
+                <p>{{comment.comment}}</div></p>
             {% empty %}
             <p>No comments here yet :(</p>
             {% endfor %}
