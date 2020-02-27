@@ -44,7 +44,7 @@ body {
 	}
 }
 
-#create, #signup, #login, #profile {
+#create, #signup, #login, #profile, #edit-profile {
     color: #fff;
     text-align: center;
     background-color: #D9B08C;
@@ -57,7 +57,7 @@ body {
 
 
 
-#login-title, #signup-title, #profile-title {
+#login-title, #signup-title, #profile-title, #profile-edit {
     color: #D9B08C;
     text-align: center;
     margin-bottom: 30px;
@@ -118,14 +118,22 @@ p {
     font-family: 'IBM Plex Sans';
 }
 
-h5, a {
+h5, h5 a {
     color: #D9B08C;
     font-size: 24px;
 }
 
-a:hover {
+h5 a:hover {
     color:rgb(173, 140, 111);
     text-decoration: none;
+}
+
+a {
+    color: #fff;
+}
+
+a:hover {
+    color: #fff;
 }
 
 .card {

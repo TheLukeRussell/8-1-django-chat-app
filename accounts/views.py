@@ -3,7 +3,7 @@ from django.views import generic
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from .models import Profile
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, CustomUserProfileForm
 from django.http import HttpResponse, HttpResponseRedirect
 
 class SignUpView(generic.CreateView):
@@ -41,3 +41,10 @@ class ProfileDetailView(generic.DetailView):
             context = self.get_context_data(object=self.object)
             return self.render_to_response(context)
         return HttpResponseRedirect(reverse_lazy('chat:index'))
+
+class ProfileUpdateView(generic.UpdateView):
+    model = Profile
+    template_name = 'profile_update.html'
+    form_class = CustomUserProfileForm
+    def get_success_url(self):
+        return reverse_lazy('chat:index')
