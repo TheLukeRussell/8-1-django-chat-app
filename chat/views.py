@@ -5,7 +5,7 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import user_passes_test
-from .forms import CommentForm
+from .forms import CommentForm, CommentUpdateForm
 
 from .models import Chatroom, Comment
 
@@ -70,7 +70,9 @@ class CommentView(generic.CreateView):
         form.instance.chat_id = self.kwargs['pk']
         return super().form_valid(form)
 
-class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
-    template_name = 'chat/edit.html'
+class CommentUpdateView(generic.UpdateView):
     model = Comment
-    fields = ['comment']
+    form_class = CommentUpdateForm
+    template_name = 'chat/edit.html'
+    def get_success_url(self):
+        return reverse_lazy('chat:index')

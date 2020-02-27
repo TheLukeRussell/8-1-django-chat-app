@@ -12,5 +12,5 @@ urlpatterns = [
     path('<int:pk>/comment/', views.CommentView.as_view(), name = 'comment'),
     path('<int:pk>/update', views.add_users, name = 'add_users'),
     path('my_chat', views.ChatroomListView.as_view(), name = 'my_chat'),
-    path('<int:pk>/edit', views.CommentUpdateView.as_view(), name = 'edit'),
+    path('<int:pk>/edit_comment', views.CommentUpdateView.as_view(), name = 'edit_comment'),
 ]
