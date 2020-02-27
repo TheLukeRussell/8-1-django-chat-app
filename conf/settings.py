@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     #third party
     'crispy_forms',
     'parsley',
-    'localflavor',
     #local
     'accounts.apps.AccountsConfig',
     'chat.apps.ChatConfig',
