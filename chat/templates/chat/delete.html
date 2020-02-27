@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div style='text-align: center;' class="row no-gutters justify-content-center">
     <div class="col">
         <h2>Delete Thread</h2>
     </div>
 </div>
-<form  style='text-align: center;'  method="post">
+<form  style='text-align: center;' method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    {{ form|crispy }}
     <button class="btn btn-danger">Get it outta here!!</button>
 </form>
 {% endblock content %}

@@ -19,12 +19,16 @@ class DetailView(generic.DetailView):
     template_name = 'chat/detail.html'
     model = Chatroom
 
-    # def get(self, request, *args, **kwargs):
-    #     self.object = self.get_object()
-        # if self.request.user == self.object.users:
-        #     context = self.get_context_data(object=self.object)
-        #     return self.render_to_response(context)
-        # return HttpResponseRedirect(reverse_lazy('chat:index'))
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        # if the chatroom exists in the list of user's chatrooms
+        # self.object = chat room
+        # self.request.user.chatrooms.all() returns the user's chatrooms that they are a member of
+        if self.object in self.request.user.chatrooms.all():
+            # import pdb; pdb.set_trace()
+            context = self.get_context_data(object=self.object)
+            return self.render_to_response(context)
+        return HttpResponseRedirect(reverse_lazy('chat:index'))
 
 class CreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'chat/create.html'
@@ -36,13 +40,13 @@ class CreateView(LoginRequiredMixin, generic.CreateView):
     def handle_no_permission(self):
         return redirect('login')
 
-@user_passes_test(lambda u: u.is_superuser)
+# @user_passes_test(lambda u: u.is_superuser)
 class DeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'chat/delete.html'
     model = Chatroom
     success_url = reverse_lazy('chat/index.html')
-    def get_success_url(self):
-        return reverse_lazy('chat:index')
+    # def get_success_url(self):
+    #     return reverse_lazy('chat:index')
 
 def add_users(request, pk):
     room = get_object_or_404(Chatroom, pk=pk)
@@ -66,4 +70,7 @@ class CommentView(generic.CreateView):
         form.instance.chat_id = self.kwargs['pk']
         return super().form_valid(form)
 
-
+class CommentUpdateView(LoginRequiredMixin, generic.UpdateView):
+    template_name = 'chat/edit.html'
+    model = Comment
+    fields = ['comment']
