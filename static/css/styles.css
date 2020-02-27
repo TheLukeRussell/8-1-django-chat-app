@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Space+Mono|Work+Sans&display=swap');
+
 ul {
     list-style: none;
 }
@@ -27,7 +29,7 @@ input.comment {
     text-align: center;
 }
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'IBM Plex Sans','Work Sans', 'Space Mono';
 }
 
 @keyframes gradient {
@@ -45,10 +47,12 @@ body {
 #create, #signup, #login, #profile {
     color: #fff;
     text-align: center;
-    margin: 0 500px;
     background-color: #D9B08C;
     padding: 25px;
     border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
+    font-family: 'Space Mono';
 }
 
 
@@ -72,6 +76,7 @@ body {
 #header-item a{
     color: #D9B08C;
     text-decoration: none;
+    font-family: 'Work Sans';
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
@@ -109,6 +114,7 @@ h2 {
 
 p {
     color: #fff;
+    font-family: 'IBM Plex Sans';
 }
 
 h5, a {
