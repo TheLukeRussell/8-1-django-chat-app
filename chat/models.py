@@ -7,7 +7,7 @@ User = get_user_model()
 
 class Chatroom(models.Model):
     name = models.CharField(max_length = 255)
-    description = models.TextField()
+    description = models.CharField(max_length = 100)
     posted = models.DateField(default=datetime.date.today)
     owner = models.ForeignKey(User, on_delete = models.CASCADE, related_name='chat')
     users = models.ManyToManyField(User, related_name = 'chatrooms')
