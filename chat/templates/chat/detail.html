@@ -11,7 +11,9 @@
             {% for comment in object.comment_set.all %}
             <div class="comment">
                 <div class="date">{{comment.name}} - <i>{{comment.created_date}}</i></div>
-                <p>{{comment.comment}} <a href="{% url 'chat:edit_comment' comment.id %}">Edit Comment</a></p></div>
+                <p>{{comment.comment}} {% if comment.name == request.user %}
+                    <a id="edit-comment" class="btn btn-dark" href="{% url 'chat:edit_comment' comment.id %}">Edit Comment</a>
+                    {% endif %}</p></div>
             {% empty %}
             <p>No comments here yet :(</p>
             {% endfor %}
@@ -24,7 +26,7 @@
         {{ form|crispy }}
         <input class="comment" placeholder="Insert Comment Here..." name="comment" type="text">
         <br>
-        <button class=" mt-2 btn btn-primary">Add Comment</button>
+        <button class=" mt-2 btn btn-success">Add Comment</button>
     </form>
 </div>
 

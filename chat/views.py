@@ -70,9 +70,12 @@ class CommentView(generic.CreateView):
         form.instance.chat_id = self.kwargs['pk']
         return super().form_valid(form)
 
-class CommentUpdateView(generic.UpdateView):
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Comment
     form_class = CommentUpdateForm
     template_name = 'chat/edit.html'
     def get_success_url(self):
         return reverse_lazy('chat:index')
+    def test_func(self):
+        obj = self.get_object()
+        return obj.name == self.request.user
