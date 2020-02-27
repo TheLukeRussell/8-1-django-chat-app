@@ -41,7 +41,6 @@ INSTALLED_APPS = [
 
     #third party
     'crispy_forms',
-    'django_countries',
     'parsley',
     'localflavor',
     #local
