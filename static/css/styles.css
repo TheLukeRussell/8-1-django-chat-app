@@ -9,7 +9,7 @@ ul {
     background-color: inherit;
     padding: 20px;
     color: inherit;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .container-fluid {
@@ -24,23 +24,23 @@ ul {
 
 #bottom-button {
     margin-bottom: 50px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #comment {
     text-align: center;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 input.comment {
     width: 600px;
     margin-top: 50px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #greeting {
     text-align: center;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 body {
@@ -80,7 +80,7 @@ body {
     width: 60%;
     margin: 0 auto;
     font-family: 'Space Mono';
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 
@@ -93,19 +93,19 @@ body {
     text-align: center;
     margin-bottom: 30px;
     font-size: 52px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #profile-img {
     width: 400px;
     margin: 50px auto;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #profile-country,
 #profile-name {
     text-align: center;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #header-item a {
@@ -118,7 +118,7 @@ body {
     border-radius: 20px;
     margin: 0 auto;
     background-color: inherit;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #header-item a:hover {
@@ -127,7 +127,7 @@ body {
     background-color: #161616;
     transition: .7s ease;
     box-shadow: 0px 0px 5px 5px rgba(217, 176, 140, 0.75);
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 
@@ -137,54 +137,54 @@ h1 {
     font-size: 60px;
     font-weight: bold;
     margin-bottom: 30px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 h2 {
     text-align: center;
     font-size: 42px;
     margin-top: 30px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 h3 {
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 #chat-list {
     margin: 30px auto;
     padding: 20px;
     font-size: 32px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 p {
     color: #fff;
     font-family: 'IBM Plex Sans';
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 h5,
 h5 a {
     color: #D9B08C;
     font-size: 24px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 h5 a:hover {
     color: rgb(173, 140, 111);
     text-decoration: none;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 a {
     color: #fff;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 a:hover {
     color: #fff;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .card {
@@ -192,7 +192,7 @@ a:hover {
     border-radius: 10px;
     width: 99%;
     margin: 0 auto;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .card:hover {
@@ -200,54 +200,54 @@ a:hover {
     margin: 0 auto;
     transition: .4s ease;
     box-shadow: 0px 0px 10px 5px rgba(217, 176, 140, 0.75);
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-success:hover {
     background-color: rgb(173, 140, 111);
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-success {
     background-color: #D9B08C;
     border: none;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-primary {
     background-color: #116466;
     border: none;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-primary:hover {
     background-color: #0d4b4d;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-danger {
     background-color: #AAABB8;
     border: none;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-danger:hover {
     background-color: #71727a;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-dark {
     background-color: #116466;
     font-size: 12px;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .btn-dark:hover {
     background-color: #0d4b4d;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
 
 .date {
     color: #D9B08C;
-    animation: fadein 2s;
+    animation: fadein 1s;
 }
