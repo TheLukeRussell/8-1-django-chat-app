@@ -45,8 +45,8 @@ class DeleteView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'chat/delete.html'
     model = Chatroom
     success_url = reverse_lazy('chat/index.html')
-    # def get_success_url(self):
-    #     return reverse_lazy('chat:index')
+    def get_success_url(self):
+        return reverse_lazy('chat:index')
 
 def add_users(request, pk):
     room = get_object_or_404(Chatroom, pk=pk)
