@@ -18,8 +18,10 @@ ul {
     animation: gradient 10s ease infinite;
     min-height: 100vh;
     color: #000;
-    display: flex;
-    flex-direction: column;
+}
+
+.neon3 {
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
 #bottom-button {
@@ -41,6 +43,8 @@ input.comment {
 #greeting {
     text-align: center;
     animation: fadein 1s;
+    animation: neon 1.5s ease-in-out infinite alternate;
+    color: #fff;
 }
 
 body {
@@ -49,8 +53,13 @@ body {
 
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes gradient {
@@ -108,6 +117,13 @@ body {
     animation: fadein 1s;
 }
 
+* {
+    box-sizing: border-box;
+    transition-property: all;
+    transition-duration: .6s;
+    transition-timing-function: ease;
+}
+
 #header-item a {
     color: #D9B08C;
     text-decoration: none;
@@ -123,16 +139,32 @@ body {
 
 #header-item a:hover {
     padding: 10px;
-    border-radius: 20px;
-    background-color: #161616;
-    transition: .7s ease;
-    box-shadow: 0px 0px 5px 5px rgba(217, 176, 140, 0.75);
-    animation: fadein 1s;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #D9B08C, 0 0 20px #b89476, 0 0 30px #8d715a, 0 0 40px #725b49, 0 0 70px #504033, 0 0 80px #3d3127, 0 0 100px #30261e, 0 0 150px #000;
+    }
+
+    to {
+        text-shadow: 0 0 5px #D9B08C, 0 0 10px #b89476, 0 0 15px #8d715a, 0 0 20px #725b49, 0 0 35px #504033, 0 0 40px #3d3127, 0 0 50px #30261e, 0 0 75px #000;
+    }
+}
+
+@keyframes neon1 {
+    from {
+        box-shadow: 0 0 10px #D9B08C, 0 0 20px #b89476, 0 0 30px #8d715a, 0 0 40px #725b49, 0 0 70px #504033, 0 0 80px #3d3127, 0 0 100px #30261e, 0 0 150px #000;
+    }
+
+    to {
+        box-shadow: 0 0 5px #D9B08C, 0 0 10px #b89476, 0 0 15px #8d715a, 0 0 20px #725b49, 0 0 35px #504033, 0 0 40px #3d3127, 0 0 50px #30261e, 0 0 75px #000;
+    }
 }
 
 
 h1 {
-    color: #000;
+    color: #D9B08C;
     text-align: center;
     font-size: 60px;
     font-weight: bold;
@@ -190,17 +222,17 @@ a:hover {
 .card {
     background-color: rgb(22, 22, 22);
     border-radius: 10px;
-    width: 99%;
     margin: 0 auto;
     animation: fadein 1s;
+    /* width: 99%; */
 }
 
 .card:hover {
-    width: 100%;
+    /* width: 100%; */
     margin: 0 auto;
-    transition: .4s ease;
-    box-shadow: 0px 0px 10px 5px rgba(217, 176, 140, 0.75);
     animation: fadein 1s;
+    transition: .4s ease;
+    
 }
 
 .btn-success:hover {
