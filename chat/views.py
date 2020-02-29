@@ -79,3 +79,4 @@ class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateV
     def test_func(self):
         obj = self.get_object()
         return obj.name == self.request.user
+        return HttpResponseRedirect(reverse_lazy('chat:index'))
