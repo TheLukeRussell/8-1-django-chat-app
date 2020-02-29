@@ -2,7 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<div class="m-scene" id="main">
+    <div class="m-header scene_element scene_element--fadein">
 <h1>Hello Chat App</h1>
+</div>
+</div>
 {% if request.user.is_authenticated %}
 {% if request.user.username %}
 <h5 id="greeting">Welcome Back {{request.user.username}}!</h5>
@@ -22,7 +26,7 @@
                     <p>Created by: {{ chatroom.owner }} on {{ chatroom.posted }}</p>
                     <form method="POST" action='{% url 'chat:add_users' chatroom.id %}'>{% csrf_token %}
                         {{ form|crispy }}
-                        <button class=" mt-2 btn btn-success">Join Thread</button>
+                        <button class="mt-2 btn btn-success">Join Thread</button>
                     </form>
                 {% endif %}
                 {% if request.user.is_superuser %}
@@ -38,7 +42,7 @@
 
 
 <div class="row no-gutters mt-2">
-    <a class='btn btn-success' href="{% url 'chat:create'%}">Start Thread</a>
+    <a id='bottom-button' class='btn btn-success' href="{% url 'chat:create'%}">Start New Thread</a>
 </div>
 {% else %}
 <h2 style="text-align: center; padding: 20px;">Hello Chat App, where your thoughts and opinions are apparently wanted </h2>

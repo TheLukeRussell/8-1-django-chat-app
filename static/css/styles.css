@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Space+Mono|Work+Sans&display=swap');
 
+
 ul {
     list-style: none;
 }
@@ -8,43 +9,69 @@ ul {
     background-color: inherit;
     padding: 20px;
     color: inherit;
+    animation: fadein 2s;
 }
 
 .container-fluid {
     background: linear-gradient(-45deg, #56807f, #116466, #0b3e3f, #8f745d);
-	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
-    min-height: 110vh;
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    min-height: 100vh;
     color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+#bottom-button {
+    margin-bottom: 50px;
+    animation: fadein 2s;
 }
 
 #comment {
     text-align: center;
+    animation: fadein 2s;
 }
+
 input.comment {
     width: 600px;
     margin-top: 50px;
+    animation: fadein 2s;
 }
+
 #greeting {
     text-align: center;
+    animation: fadein 2s;
 }
+
 body {
-    font-family: 'IBM Plex Sans','Work Sans', 'Space Mono';
+    font-family: 'IBM Plex Sans', 'Work Sans', 'Space Mono';
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-#create, #signup, #login, #profile, #edit-profile {
+#create,
+#signup,
+#login,
+#profile,
+#edit-profile {
     color: #fff;
     text-align: center;
     background-color: #D9B08C;
@@ -53,43 +80,54 @@ body {
     width: 60%;
     margin: 0 auto;
     font-family: 'Space Mono';
+    animation: fadein 2s;
 }
 
 
 
-#login-title, #signup-title, #profile-title, #profile-edit {
+#login-title,
+#signup-title,
+#profile-title,
+#profile-edit {
     color: #D9B08C;
     text-align: center;
     margin-bottom: 30px;
     font-size: 52px;
+    animation: fadein 2s;
 }
 
 #profile-img {
     width: 400px;
     margin: 50px auto;
+    animation: fadein 2s;
 }
 
-#profile-country, #profile-name {
+#profile-country,
+#profile-name {
     text-align: center;
+    animation: fadein 2s;
 }
 
-#header-item a{
+#header-item a {
     color: #D9B08C;
     text-decoration: none;
     font-family: 'Work Sans';
     font-size: 22px;
     font-weight: bold;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 0 auto;
     background-color: inherit;
+    animation: fadein 2s;
 }
 
 #header-item a:hover {
     padding: 10px;
     border-radius: 20px;
     background-color: #161616;
-    transition: .6s ease;
+    transition: .7s ease;
+    box-shadow: 0px 0px 5px 5px rgba(217, 176, 140, 0.75);
+    animation: fadein 2s;
 }
 
 
@@ -99,87 +137,117 @@ h1 {
     font-size: 60px;
     font-weight: bold;
     margin-bottom: 30px;
+    animation: fadein 2s;
 }
 
 h2 {
     text-align: center;
     font-size: 42px;
     margin-top: 30px;
+    animation: fadein 2s;
+}
+
+h3 {
+    animation: fadein 2s;
 }
 
 #chat-list {
     margin: 30px auto;
     padding: 20px;
     font-size: 32px;
+    animation: fadein 2s;
 }
 
 p {
     color: #fff;
     font-family: 'IBM Plex Sans';
+    animation: fadein 2s;
 }
 
-h5, h5 a {
+h5,
+h5 a {
     color: #D9B08C;
     font-size: 24px;
+    animation: fadein 2s;
 }
 
 h5 a:hover {
-    color:rgb(173, 140, 111);
+    color: rgb(173, 140, 111);
     text-decoration: none;
-}
-
-#edit-comment {
+    animation: fadein 2s;
 }
 
 a {
     color: #fff;
+    animation: fadein 2s;
 }
 
 a:hover {
     color: #fff;
+    animation: fadein 2s;
 }
 
 .card {
     background-color: rgb(22, 22, 22);
     border-radius: 10px;
+    width: 99%;
+    margin: 0 auto;
+    animation: fadein 2s;
+}
+
+.card:hover {
+    width: 100%;
+    margin: 0 auto;
+    transition: .4s ease;
+    box-shadow: 0px 0px 10px 5px rgba(217, 176, 140, 0.75);
+    animation: fadein 2s;
 }
 
 .btn-success:hover {
     background-color: rgb(173, 140, 111);
+    animation: fadein 2s;
 }
 
 .btn-success {
     background-color: #D9B08C;
     border: none;
+    animation: fadein 2s;
 }
 
 .btn-primary {
     background-color: #116466;
     border: none;
+    animation: fadein 2s;
 }
 
 .btn-primary:hover {
     background-color: #0d4b4d;
+    animation: fadein 2s;
 }
 
 .btn-danger {
     background-color: #AAABB8;
     border: none;
+    animation: fadein 2s;
 }
 
 .btn-danger:hover {
     background-color: #71727a;
+    animation: fadein 2s;
 }
 
 .btn-dark {
     background-color: #116466;
     font-size: 12px;
+    animation: fadein 2s;
 }
 
 .btn-dark:hover {
     background-color: #0d4b4d;
+    animation: fadein 2s;
 }
 
 .date {
     color: #D9B08C;
+    animation: fadein 2s;
 }
