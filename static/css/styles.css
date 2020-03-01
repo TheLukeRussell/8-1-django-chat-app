@@ -35,7 +35,7 @@ ul {
 }
 
 input.comment {
-    width: 600px;
+    width: 400px;
     margin-top: 50px;
     animation: fadein 1s;
 }
@@ -43,7 +43,7 @@ input.comment {
 #greeting {
     text-align: center;
     animation: fadein 1s;
-    animation: neon 1.5s ease-in-out infinite alternate;
+    /* animation: neon 1.5s ease-in-out infinite alternate; */
     color: #fff;
 }
 
@@ -188,6 +188,10 @@ h3 {
     padding: 20px;
     font-size: 32px;
     animation: fadein 1s;
+}
+
+#chat-list:hover {
+    animation: neon1 1.5s ease-in-out infinite alternate;
 }
 
 p {
